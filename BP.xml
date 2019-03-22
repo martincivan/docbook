@@ -2,39 +2,50 @@
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <book lang="sk-SK">
 	<bookinfo>
-		<title>???</title>
+		<title>VIZUALIZÁCIA ZAZNAMENANÉHO POHĽADU</title>
+		<subtitle>Bakalárska práca</subtitle>
 		<author>
-			<personname>
-				<othername>Andrej Schmidt</othername>
-			</personname>
+			<firstname>Martin</firstname>
+			<surname>Civáň</surname>
+			<affiliation>
+				<orgname>Slovenská technická univezita v Bratisave</orgname>
+				<orgdiv role="fakulta">Fakulta informatiky a informačných technológií</orgdiv>
+			</affiliation>
 		</author>
 		<date remap="dcterms.created">2019-03-21T14:51:00Z</date>
 		<date remap="dcterms.modified">2019-03-21T14:51:00Z</date>
+
+		<othername role="vedouci">Ing. Jakub Šimko, PhD.</othername>
+		<pubdate>Marec 2019</pubdate>
+		<abstract>
+			<title>Anotácia</title>
+
+			<para>Bakalárska práca sa zaoberá upravením existujúceho nástroja na vizualizáciu zaznamenaného pohľadu, tak aby bol použiteľný s existujúcou infraštruktúrou na FIIT.</para>
+
+			<para>Anotace by měla stručně shrnout obsah práce a její
+      výsledky.</para>
+		</abstract>
+
+		<abstract lang="en">
+			<title>Annotation</title>
+
+			<para>Annotation, but now in English.</para>
+		</abstract>
+
+		<abstract>
+			<title>Vyhlásenie</title>
+
+			<para>Čestne vyhlasujem, že som túto prácu vypracoval samostatne, na základe konzultácií a s použitím uvedenej literatúry.</para>
+
+			<?vskip 70pt?>
+
+			<para>V Bratislave, 8.12.2018</para>
+
+			<?vskip 30pt?>
+
+			<para><?hskip 300pt?>Martin Civáň</para>
+		</abstract>
 	</bookinfo>
-	<chapter>
-		<title/>
-		<para>Slovenská technická univerzita v Bratislave</para>
-		<para>Fakulta informatiky a informačných technológií</para>
-		<para>Martin Civáň</para>
-	</chapter>
-	<chapter>
-		<title>VIZUALIZÁCIA ZAZNAMENANÉHO POHĽADU</title>
-		<para>Priebežná správa o riešení BP1</para>
-		<para>Študijný program: Informatika Študijný odbor: Informatika</para>
-		<para>Miesto vypracovania:	Ústav informatiky, informačných systémov a softvérového inžinierstva</para>
-		<para>Vedúci práce:	Ing. Jakub Šimko, PhD.</para>
-		<para>december 2018</para>
-		<para>
-			<inlinemediaobject>
-				<imageobject>
-					<imagedata fileref="BP_files/image1.jpg" contentwidth="721" contentdepth="955"/>
-				</imageobject>
-			</inlinemediaobject>
-		</para>
-		<para>Čestne vyhlasujem, že som túto prácu vypracoval samostatne, na základe konzultácií a s použitím uvedenej literatúry.</para>
-		<para>	V Bratislave, 8.12.2018	Martin Civáň</para>
-		<para>iv</para>
-	</chapter>
 	<chapter>
 		<title>Obsah</title>
 		<orderedlist>
