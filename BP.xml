@@ -43,287 +43,230 @@
 
 			<?vskip 30pt?>
 
-			<para><?hskip 300pt?>Martin Civáň</para>
+			<para>
+				<?hskip 300pt?>Martin Civáň</para>
 		</abstract>
 	</bookinfo>
 	<chapter>
-		<title>Obsah</title>
-		<orderedlist>
-			<listitem>
-				<para>Vizualizácia zaznamenaného pohľadu	1</para>
-			</listitem>
-			<listitem>
-				<para>Existujúce riešenia	2</para>
-			</listitem>
-			<listitem>
-				<para>UXI infraštruktúra	3</para>
-			</listitem>
-			<listitem>
-				<para>Ogama na zobrazovanie údajov z UXI Infraštruktúry	3</para>
-				<orderedlist inheritnum="inherit">
-					<listitem>
-						<para>Základné vlastnosti . . . . . . . . . . . . . . . . . . . . . . . .	3</para>
-					</listitem>
-					<listitem>
-						<para>Úložisko údajov . . . . . . . . . . . . . . . . . . . . . . . . . .	3</para>
-					</listitem>
-					<listitem>
-						<para>Databázový model	. . . . . . . . . . . . . . . . . . . . . . . .	4</para>
-					</listitem>
-					<listitem>
-						<para>Zhodnotenie databázového modelu	. . . . . . . . . . . . . . .	6</para>
-					</listitem>
-				</orderedlist>
-			</listitem>
-			<listitem>
-				<para>Import dát	7</para>
-				<orderedlist inheritnum="inherit">
-					<listitem>
-						<para>Súradnice pohľadu a myši	. . . . . . . . . . . . . . . . . . . .	7</para>
-					</listitem>
-					<listitem>
-						<para>Označenie záznamu . . . . . . . . . . . . . . . . . . . . . . . .	7</para>
-					</listitem>
-					<listitem>
-						<para>Načítavanie nahrávky obrazovky . . . . . . . . . . . . . . . . .	7</para>
-					</listitem>
-				</orderedlist>
-			</listitem>
-			<listitem>
-				<para>Import z UXI Infraštruktúry	8</para>
-				<orderedlist inheritnum="inherit">
-					<listitem>
-						<para>Špecifikácia . . . . . . . . . . . . . . . . . . . . . . . . . . . .	8</para>
-					</listitem>
-					<listitem>
-						<para>Návrh	. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .	8</para>
-					</listitem>
-					<listitem>
-						<para>Trieda importu z UXI Infraštruktúry . . . . . . . . . . . . . .	8</para>
-					</listitem>
-					<listitem>
-						<para>Pridané grafické rozhranie importu z UXI Infraštruktúry . . .	8</para>
-					</listitem>
-					<listitem>
-						<para>Scenár importu . . . . . . . . . . . . . . . . . . . . . . . . . .	9</para>
-					</listitem>
-				</orderedlist>
-			</listitem>
-		</orderedlist>
-		<para>vi</para>
-		<para>
-			<inlinemediaobject>
-				<imageobject>
-					<imagedata fileref="BP_files/image2.jpg" contentwidth="220" contentdepth="166"/>
-				</imageobject>
-			</inlinemediaobject>
-		</para>
-		<para>Obr. 1: Zobrazenie trasy pohľadu (angl. scanpath) pomocou nástroja Ogama</para>
-		<para>Úvod Pri zobrazovaní zaznamenaného pohľadu sa používajú rôzne zobrazovacie techniky. Okrem rôznorodých čiarových, prípadne stĺpcových grafov, ktoré môžu zobrazovať rôzne číselné alebo štatistické metriky je na základné nahliadnutie do dát vhodné použiť zobrazovanie pohľadu priamo na stimule.</para>
+		<title>Úvod</title>
+		<para>Pri zobrazovaní zaznamenaného pohľadu sa používajú rôzne zobrazovacie techniky. Okrem rôznorodých čiarových, prípadne stĺpcových grafov, ktoré môžu zobrazovať rôzne číselné alebo štatistické metriky je na základné nahliadnutie do dát vhodné použiť zobrazovanie pohľadu priamo na stimule.</para>
 		<para>Väčšina nástrojov na vytvorenie stimulov experimentu a samotný záznam ponúka aj samotné vizualizačné možnosti. Na FIIT však máme laboratórium, v ktorom sa môže konať experiment až pre 20 účastníkov naraz. Na takúto úlohu nie sú bežné nástroje optimálne a preto bola vyvinutá UXI Infraštruktúra. Tá slúži na rozdistribuovanie zadania experimentu do počítačov účastníkov, na samotné zobrazenie stimulov a zaznamenanie meraných údajov. Po experimente namerané údaje zhromaždí na jedno miesto. Vizualizačný nástroj však nemá a zaznamenané údaje nie je možné nijako jednoducho vizualizovať.</para>
-		<para>V rámci tejto práce sme preto navrhli a doplnili možnosť importu údajov z UXI Infraštruktúri do existujúceho programu Ogama. Ogama je softvér s otvoreným zdrojovým kódom, ktorý slúži na návrh experimentu, záznam a vizualizáciu. Po rýchlom a jednoduchom naimportovaní údajov je teda možné použiť vizualizačný modul Ogamy na základné nahliadnutie do získaných údajov. Analýza</para>
+		<para>V rámci tejto práce sme preto navrhli a doplnili možnosť importu údajov z UXI Infraštruktúri do existujúceho programu Ogama. Ogama je softvér s otvoreným zdrojovým kódom, ktorý slúži na návrh experimentu, záznam a vizualizáciu. Po rýchlom a jednoduchom naimportovaní údajov je teda možné použiť vizualizačný modul Ogamy na základné nahliadnutie do získaných údajov.</para>
 	</chapter>
 	<chapter>
-		<title>Vizualizácia zaznamenaného pohľadu</title>
-		<para>Základnou používanou technikou na zobrazovanie zaznamenaného pohľadu priamo na stimule patrí zobrazovanie trasy pohľadu na dynamickom alebo statickom stimule. Ide o zobrazenie postupnosť fixácií pohľadu ktoré sú pospájané sakádami. Je z nej dobre vidieť presnú trasu pohľadu. Ukážka na Obr. 1</para>
-		<para>Pri viacerých účastníkoch experimentu je možné tiež tieto údaje agregovať</para>
-		<para>
-			<inlinemediaobject>
-				<imageobject>
-					<imagedata fileref="BP_files/image3.jpg" contentwidth="212" contentdepth="160"/>
-				</imageobject>
-			</inlinemediaobject>
-		</para>
-		<para>Obr. 2: Zobrazenie mapy pozornosti (angl. attention map) pomocou nástroja Ogama</para>
-		<para>do mapy pozornosti (angl. attention map). Z tejto mapy je zrejmé, v ktorých miestach bol pohľad najviac sústredený. Ukážka na Obr. 2 [1]</para>
-	</chapter>
-	<chapter>
-		<title>Existujúce riešenia</title>
-		<para>K eye-trackerom od spoločnosti Tobii, ktoré sú momentálne na fakulte je na vytvorenie stimulov experimentu, záznam a vizualizáciu záznamu dodávaný softvér Tobii Studio. Ide o proprietárny softvér určený pre operačné systémy z rodiny Windows, ktorý podporuje najpoužívanejšie vyššie uvedené zobrazovacie techniky. Vie však zobrazovať len ním zaznamenané údaje bez nejakej možnosti importu už existujúcich údajov z iného zdroja.</para>
-		<para>Z riešení s otvoreným zdrojovým kódom stojí za zmienku Ogama. Skladá sa z viacerých modulov: Dizajnovací modul je určený na vytvorenie stimulov a zostavenie experimentu. Podporuje rôzne scenáre, napríklad snímkovú prezentáciu, Flash video alebo len čistý záznam obrazovky. Záznamový modul umožňuje zobrazovanie stimulov, zaznamenávanie pohľadu, myši, prípadne obrazovky naraz jedného účastníka experimentu a následné vypočítanicií a zápis údajov do databázy. Zaznamenané údaje sa dajú zobraziť pomocou zobrazovacích modulov. Tieto moduly podporujú zobrazovanie postupnosti fixácii pohľadu a myši na stimuloch. Pri statických podkladoch vedia zobraziť aj tepelnú mapu. Taktiež je možné výsledok exportovať do videa v kontajneri AVI. V databázovom module sa dajú zobraziť, prípadne aj upraviť hodnoty zaznamenaných údajov a taktiež je možný import údajov z CSV súboru.</para>
-	</chapter>
-	<chapter>
-		<title>UXI infraštruktúra</title>
-		<para>FIIT je vybavená laboratóriom s názvom UXClass pre skupinové eye-trackingové experimenty. Pre tieto účely bol vytvorený nástroj na riadenie takýchto experimentov s názvom UXI Infraštruktúra, ktorá sa skladá zo serverovej časti UXR na riadenie experimentu a klientskej časti UXC na záznam údajov od jednotlivých zúčastnených. Ide o aplikáciu založenú na technológií .NET, napísanú v jazyku C#, teda je určená pre operačné systémy rodiny Microsoft Windows. Zaznamenané údaje sú zhromaždené a uložené v JSON súboroch a záznam obrazovky, prípadne aj kamery, je uložený v kontajneri MP4. Aktuálne však neexistuje nástroj na plnohodnotné a pohodlné zobrazenie týchto údajov.</para>
-	</chapter>
-	<chapter>
-		<title>Ogama na zobrazovanie údajov z UXI Infraštruktúry</title>
+		<title>Analýza</title>
 		<section>
-			<title>Základné vlastnosti</title>
-			<para>Ogama má základné požadované vizualizačné funkcie a má otvorený zdrojový kód preto je ju vhodné použiť ako základ riešenia. Ide o Windows Forms aplikáciu napísanú v jazyku C# s použitím rámca .NET verzie 4. Na zobrazovanie videa používa knižnicu DirectShow, na uskladnenie údajov slúži SQLite databáza. Vďaka rámcu .NET spolu s Windows Forms a DirectShow je momentálne možné túto aplikáciu natívne používať výhradne na operačných systémoch Microsoft Windows. To je síce nevýhoda ale nie je to zhoršenie oproti aktuálne používanému TobiiStudiu, ktoré natívne podporuje tiež len operačný systém Windows.</para>
+			<title>Vizualizácia zaznamenaného pohľadu</title>
+			<para>Základnou používanou technikou na zobrazovanie zaznamenaného pohľadu priamo na stimule patrí zobrazovanie trasy pohľadu na dynamickom alebo statickom stimule. Ide o zobrazenie postupnosť fixácií pohľadu ktoré sú pospájané sakádami. Je z nej dobre vidieť presnú trasu pohľadu. Ukážka na <xref  linkend="obrazok_trasa"/>
+			</para>
+			<para>Pri viacerých účastníkoch experimentu je možné tiež tieto údaje agregovať do mapy pozornosti (angl. attention map). Z tejto mapy je zrejmé, v ktorých miestach bol pohľad najviac sústredený. Ukážka na <xref  linkend="obrazok_mapa"/>
+			</para>
 		</section>
 		<section>
-			<title>Úložisko údajov</title>
-			<para>SQLite prináša so sebou výhody aj nevýhody - na používanie síce nie je potrebný špeciálny databázový server ale pri väčších meraniach to môže spôsobiť zvýšené hardvérové nároky na počítač. Z git repozitára je zrejmé, že v minulosti Ogama používala Microsoft SQL Server. Pre účely fakulty by centralizovaný databázový SQL server bol vhodnejší nielen kvôli nižším nárokom na počítač počas analyzovania ale aj kvôli lepším možnostiam zdieľania údajov medzi projektami. V prípade, keď sú údaje uložené na kvalitnom serveri s RAID-om tak sa používateľ nemusí priamo starať o ich zálohovanie. Uvažovali sme nad zmenou na multiplatformový server MySQL prípadne PostgreSQL ale zatiaľ sme sa rozhodli úložisko dát ponechať na SQLite z viacerých dôvodov: Zatiaľ nie je jasné, či sa Ogama uchytí v praxi a teda sme si v rámci tejto práce určili ako prioritu základnú kompatibilitu, ktorou je možnosť jednoduchého importu dát a tiež nie je jasné, kto a ako by sa o prípadný server staral. SQLite momentálne nepredstavuje prekážku vo funkčnosti a keď sa naše riešenie osvedčí aj v praxi je možné ho kedykoľvek pomerne jednoducho upraviť aby pracovalo s iným SQL úložiskom.</para>
+			<title>Existujúce riešenia</title>
+			<para>K eye-trackerom od spoločnosti Tobii, ktoré sú momentálne na fakulte je na vytvorenie stimulov experimentu, záznam a vizualizáciu záznamu dodávaný softvér Tobii Studio. Ide o proprietárny softvér určený pre operačné systémy z rodiny Windows, ktorý podporuje najpoužívanejšie vyššie uvedené zobrazovacie techniky. Vie však zobrazovať len ním zaznamenané údaje bez nejakej možnosti importu už existujúcich údajov z iného zdroja.</para>
+			<para>Z riešení s otvoreným zdrojovým kódom stojí za zmienku Ogama. Skladá sa z viacerých modulov: Dizajnovací modul je určený na vytvorenie stimulov a zostavenie experimentu. Podporuje rôzne scenáre, napríklad snímkovú prezentáciu, Flash video alebo len čistý záznam obrazovky. Záznamový modul umožňuje zobrazovanie stimulov, zaznamenávanie pohľadu, myši, prípadne obrazovky naraz jedného účastníka experimentu a následné vypočítanicií a zápis údajov do databázy. Zaznamenané údaje sa dajú zobraziť pomocou zobrazovacích modulov. Tieto moduly podporujú zobrazovanie postupnosti fixácii pohľadu a myši na stimuloch. Pri statických podkladoch vedia zobraziť aj tepelnú mapu. Taktiež je možné výsledok exportovať do videa v kontajneri AVI. V databázovom module sa dajú zobraziť, prípadne aj upraviť hodnoty zaznamenaných údajov a taktiež je možný import údajov z CSV súboru.</para>
+			<figure id="obrazok_trasa">
+				<title>Zobrazenie trasy pohľadu (angl. scanpath) pomocou nástroja Ogama</title>
+				<titleabbrev>Trasa pohľadu</titleabbrev>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="BP_files/image2.jpg" scalefit="1" width="75%" align="center"/>
+					</imageobject>
+				</mediaobject>
+			</figure>
+			<figure id="obrazok_mapa">
+				<title>Zobrazenie mapy pozornosti (angl. attention map) pomocou nástroja Ogama</title>
+				<titleabbrev>Mapa pozornosti</titleabbrev>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="BP_files/image3.jpg" scalefit="1" width="75%" align="center"/>
+					</imageobject>
+				</mediaobject>
+			</figure>
 		</section>
 		<section>
-			<title>Databázový model</title>
-			<para>Databáza programu Ogama obsahuje tabuľku AOIs, v ktorej sú uložené oblasti záujmu (angl. AOI - areas of interest). Každý záznam obsahuje nasledovné údaje:</para>
-			<itemizedlist>
-				<listitem>
-					<para>jedinečného číslo záznamu ID</para>
-				</listitem>
-				<listitem>
-					<para>číslo stimulu TrialID</para>
-				</listitem>
-				<listitem>
-					<para>číslo prezentácie SlideNr</para>
-				</listitem>
-				<listitem>
-					<para>názov tvaru ShapeName</para>
-				</listitem>
-				<listitem>
-					<para>typ útvaru ShapeType (napr. Rectangle, Polyline - pre obdĺžnik resp, mnohouholník pod.).</para>
-				</listitem>
-				<listitem>
-					<para>počet vrcholov ShapeNumPts</para>
-				</listitem>
-				<listitem>
-					<para>zoznam súradníc vrcholov útvaru ShapePts</para>
-				</listitem>
-				<listitem>
-					<para>názov skupiny útvarov ShapeGroup</para>
-				</listitem>
-			</itemizedlist>
-			<para>Surové údaje z eye-trackera a záznamu myši sú uložené v samostatnej tabuľke pre každého účastník zvlášť. Po konzultácií s pôvodným autorom vysvitlo, že to tak bolo z výkonnostných dôvodov, ktoré už dnes síce nemusia byť relevantné, no nebol nikdy zistený výslovný dôvod na vynaloženie úsilia na zmenu tejto architektúry. Tabuľka má vždy názov zložený z meno účastníka a príponu Rawdata. Má nasledovné štruktúru:</para>
-			<itemizedlist>
-				<listitem>
-					<para>jedinečné číslo záznamu ID</para>
-				</listitem>
-				<listitem>
-					<para>meno účastníka SubjectName</para>
-				</listitem>
-				<listitem>
-					<para>číslo stimulu TrialSequence</para>
-				</listitem>
-				<listitem>
-					<para>čas v mikrosekundách od začiatku záznamu Time</para>
-				</listitem>
-				<listitem>
-					<para>X-ový priemer zreničky PupilDiaX</para>
-				</listitem>
-				<listitem>
-					<para>Y-ový priemer zreničky PupilDiaY</para>
-				</listitem>
-				<listitem>
-					<para>X-ová súradnica pohľadu GazePosX</para>
-				</listitem>
-				<listitem>
-					<para>Y-ová súradnica pohľadu GazePosY</para>
-				</listitem>
-				<listitem>
-					<para>X-ová súradnica myši MousePosX</para>
-				</listitem>
-				<listitem>
-					<para>Y-ová súradnica myši MousePosX</para>
-				</listitem>
-				<listitem>
-					<para>číslo udalosti, ak nejaká nastala EventId</para>
-				</listitem>
-			</itemizedlist>
-			<para>Tabuľky GazeFixations a GazeFixations obsahujú zoznam fixácií pohľadu resp. myši a majú nasledovné stĺpce:</para>
-			<itemizedlist>
-				<listitem>
-					<para>jedinečné číslo záznamu ID</para>
-				</listitem>
-				<listitem>
-					<para>meno účastníka SubjectName</para>
-				</listitem>
-				<listitem>
-					<para>číslo stimulu TrialID</para>
-				</listitem>
-				<listitem>
-					<para>číslo stimulu TrialSequence</para>
-				</listitem>
-				<listitem>
-					<para>poradie fixácie v rámci stimulu CountInTrial</para>
-				</listitem>
-				<listitem>
-					<para>čas začiatku fixácie od začiatku stimulu StartTime</para>
-				</listitem>
-				<listitem>
-					<para>dĺžka trvania fixácie Length</para>
-				</listitem>
-				<listitem>
-					<para>X-ová súradnica fixácie PosX</para>
-				</listitem>
-				<listitem>
-					<para>Y-ová súradnica fixácie PosY</para>
-				</listitem>
-			</itemizedlist>
-			<para>Ďalšie parametre môžu byť umiestnené v tabuľke Params so stĺpcami ID, Param, Description.</para>
-			<para>Skupiny útvarov sú vymenované v tabuľke ShapeGroups so stĺpcami ID a ShapeGroup.</para>
-			<para>Jednotlivý účastníci experimentu sú uložený v tabuľke Subjects, okrem čísla účastníka a jeho mena SubjectName sú tam aj informácie ako vek Age, pohlavie Sex, dominantná ruka Handedness, zaradenie účastníka do kategórie Category a prípadný komentár Comments.</para>
-			<para>Pre ďalšie vlastnosti účastníkov je určená tabuľka SubjectParameters, kde je okrem čísla záznamu ID a mena SubjectName samotný názov vlastnosti Param a jej hodnota ParamValue.</para>
-			<para>Udalosti záznamu sú v tabuľke TrialEvents v stĺpcoch:</para>
-			<itemizedlist>
-				<listitem>
-					<para>ID - jedinečné číslo záznamu</para>
-				</listitem>
-				<listitem>
-					<para>SubjectName - meno účastníka</para>
-				</listitem>
-				<listitem>
-					<para>TrialSequence - číslo stimulu</para>
-				</listitem>
-				<listitem>
-					<para>EventId - číslo udalosti pre daného participanta</para>
-				</listitem>
-				<listitem>
-					<para>EventTime - Čas udalosti</para>
-				</listitem>
-				<listitem>
-					<para>EventType - Kategória udalosti (napr. Mouse pre udalosti týkajúce sa kliknutia myši</para>
-				</listitem>
-				<listitem>
-					<para>EventTask - Typ udalosti (napr. Up, Down pre stlačenie resp. uvoľnenie tlačidla</para>
-				</listitem>
-				<listitem>
-					<para>EventParam - Ďalšie doplňujúce informácie o udalosti (napr. súradnice kliknutia myši)</para>
-				</listitem>
-			</itemizedlist>
-			<para>Zoznam záznamov stimulov je v tabuľke Trials. Okrem čísla záznamu (ID), mena účastníka (SubjectName) a zatiaľ mne neznámeho prázdneho stĺpca EliminateData sú tam nasledovné hodnoty:</para>
-			<itemizedlist>
-				<listitem>
-					<para>TrialID - číslo stimulu</para>
-				</listitem>
-				<listitem>
-					<para>TrialName - názov stimulu</para>
-				</listitem>
-				<listitem>
-					<para>TrialSequence - číslo stimulu v poradí • Category - kategória stimulu</para>
-				</listitem>
-				<listitem>
-					<para>TrialStartTime - čas začiatku stimulu</para>
-				</listitem>
-				<listitem>
-					<para>Duration - dĺžka trvania stimulu</para>
-				</listitem>
-			</itemizedlist>
+			<title>UXI infraštruktúra</title>
+			<para>FIIT je vybavená laboratóriom s názvom UXClass pre skupinové eye-trackingové experimenty. Pre tieto účely bol vytvorený nástroj na riadenie takýchto experimentov s názvom UXI Infraštruktúra, ktorá sa skladá zo serverovej časti UXR na riadenie experimentu a klientskej časti UXC na záznam údajov od jednotlivých zúčastnených. Ide o aplikáciu založenú na technológií .NET, napísanú v jazyku C#, teda je určená pre operačné systémy rodiny Microsoft Windows. Zaznamenané údaje sú zhromaždené a uložené v JSON súboroch a záznam obrazovky, prípadne aj kamery, je uložený v kontajneri MP4. Aktuálne však neexistuje nástroj na plnohodnotné a pohodlné zobrazenie týchto údajov.</para>
 		</section>
 		<section>
-			<title>Zhodnotenie databázového modelu</title>
-			<para>Databázový model by v budúcnosti mohol byť upravený aby názov merania resp. meno účastníka mohlo obsahovať všetky znaky. Na referencovanie merania a taktiež názvy tabuliek by malo slúžiť jeho číslo resp. ID. Taktiež mať údaje rozdelené do viacerých tabuliek s rovnakou štruktúrou je v celku netradičné a ak by sa preukázalo, že to nemá pozitívny vplyv na výkon, ich zlúčenie by mohlo zlepšiť celkovú kvalitu modelu a zdrojového kódu aplikácie.</para>
+			<title>Ogama na zobrazovanie údajov z UXI Infraštruktúry</title>
+			<section>
+				<title>Základné vlastnosti</title>
+				<para>Ogama má základné požadované vizualizačné funkcie a má otvorený zdrojový kód preto je ju vhodné použiť ako základ riešenia. Ide o Windows Forms aplikáciu napísanú v jazyku C# s použitím rámca .NET verzie 4. Na zobrazovanie videa používa knižnicu DirectShow, na uskladnenie údajov slúži SQLite databáza. Vďaka rámcu .NET spolu s Windows Forms a DirectShow je momentálne možné túto aplikáciu natívne používať výhradne na operačných systémoch Microsoft Windows. To je síce nevýhoda ale nie je to zhoršenie oproti aktuálne používanému TobiiStudiu, ktoré natívne podporuje tiež len operačný systém Windows.</para>
+			</section>
+			<section>
+				<title>Úložisko údajov</title>
+				<para>SQLite prináša so sebou výhody aj nevýhody - na používanie síce nie je potrebný špeciálny databázový server ale pri väčších meraniach to môže spôsobiť zvýšené hardvérové nároky na počítač. Z git repozitára je zrejmé, že v minulosti Ogama používala Microsoft SQL Server. Pre účely fakulty by centralizovaný databázový SQL server bol vhodnejší nielen kvôli nižším nárokom na počítač počas analyzovania ale aj kvôli lepším možnostiam zdieľania údajov medzi projektami. V prípade, keď sú údaje uložené na kvalitnom serveri s RAID-om tak sa používateľ nemusí priamo starať o ich zálohovanie. Uvažovali sme nad zmenou na multiplatformový server MySQL prípadne PostgreSQL ale zatiaľ sme sa rozhodli úložisko dát ponechať na SQLite z viacerých dôvodov: Zatiaľ nie je jasné, či sa Ogama uchytí v praxi a teda sme si v rámci tejto práce určili ako prioritu základnú kompatibilitu, ktorou je možnosť jednoduchého importu dát a tiež nie je jasné, kto a ako by sa o prípadný server staral. SQLite momentálne nepredstavuje prekážku vo funkčnosti a keď sa naše riešenie osvedčí aj v praxi je možné ho kedykoľvek pomerne jednoducho upraviť aby pracovalo s iným SQL úložiskom.</para>
+			</section>
+			<section>
+				<title>Databázový model</title>
+				<para>Databáza programu Ogama obsahuje tabuľku AOIs, v ktorej sú uložené oblasti záujmu (angl. AOI - areas of interest). Každý záznam obsahuje nasledovné údaje:</para>
+				<itemizedlist>
+					<listitem>
+						<para>jedinečného číslo záznamu ID</para>
+					</listitem>
+					<listitem>
+						<para>číslo stimulu TrialID</para>
+					</listitem>
+					<listitem>
+						<para>číslo prezentácie SlideNr</para>
+					</listitem>
+					<listitem>
+						<para>názov tvaru ShapeName</para>
+					</listitem>
+					<listitem>
+						<para>typ útvaru ShapeType (napr. Rectangle, Polyline - pre obdĺžnik resp, mnohouholník pod.).</para>
+					</listitem>
+					<listitem>
+						<para>počet vrcholov ShapeNumPts</para>
+					</listitem>
+					<listitem>
+						<para>zoznam súradníc vrcholov útvaru ShapePts</para>
+					</listitem>
+					<listitem>
+						<para>názov skupiny útvarov ShapeGroup</para>
+					</listitem>
+				</itemizedlist>
+				<para>Surové údaje z eye-trackera a záznamu myši sú uložené v samostatnej tabuľke pre každého účastník zvlášť. Po konzultácií s pôvodným autorom vysvitlo, že to tak bolo z výkonnostných dôvodov, ktoré už dnes síce nemusia byť relevantné, no nebol nikdy zistený výslovný dôvod na vynaloženie úsilia na zmenu tejto architektúry. Tabuľka má vždy názov zložený z meno účastníka a príponu Rawdata. Má nasledovné štruktúru:</para>
+				<itemizedlist>
+					<listitem>
+						<para>jedinečné číslo záznamu ID</para>
+					</listitem>
+					<listitem>
+						<para>meno účastníka SubjectName</para>
+					</listitem>
+					<listitem>
+						<para>číslo stimulu TrialSequence</para>
+					</listitem>
+					<listitem>
+						<para>čas v mikrosekundách od začiatku záznamu Time</para>
+					</listitem>
+					<listitem>
+						<para>X-ový priemer zreničky PupilDiaX</para>
+					</listitem>
+					<listitem>
+						<para>Y-ový priemer zreničky PupilDiaY</para>
+					</listitem>
+					<listitem>
+						<para>X-ová súradnica pohľadu GazePosX</para>
+					</listitem>
+					<listitem>
+						<para>Y-ová súradnica pohľadu GazePosY</para>
+					</listitem>
+					<listitem>
+						<para>X-ová súradnica myši MousePosX</para>
+					</listitem>
+					<listitem>
+						<para>Y-ová súradnica myši MousePosX</para>
+					</listitem>
+					<listitem>
+						<para>číslo udalosti, ak nejaká nastala EventId</para>
+					</listitem>
+				</itemizedlist>
+				<para>Tabuľky GazeFixations a GazeFixations obsahujú zoznam fixácií pohľadu resp. myši a majú nasledovné stĺpce:</para>
+				<itemizedlist>
+					<listitem>
+						<para>jedinečné číslo záznamu ID</para>
+					</listitem>
+					<listitem>
+						<para>meno účastníka SubjectName</para>
+					</listitem>
+					<listitem>
+						<para>číslo stimulu TrialID</para>
+					</listitem>
+					<listitem>
+						<para>číslo stimulu TrialSequence</para>
+					</listitem>
+					<listitem>
+						<para>poradie fixácie v rámci stimulu CountInTrial</para>
+					</listitem>
+					<listitem>
+						<para>čas začiatku fixácie od začiatku stimulu StartTime</para>
+					</listitem>
+					<listitem>
+						<para>dĺžka trvania fixácie Length</para>
+					</listitem>
+					<listitem>
+						<para>X-ová súradnica fixácie PosX</para>
+					</listitem>
+					<listitem>
+						<para>Y-ová súradnica fixácie PosY</para>
+					</listitem>
+				</itemizedlist>
+				<para>Ďalšie parametre môžu byť umiestnené v tabuľke Params so stĺpcami ID, Param, Description.</para>
+				<para>Skupiny útvarov sú vymenované v tabuľke ShapeGroups so stĺpcami ID a ShapeGroup.</para>
+				<para>Jednotlivý účastníci experimentu sú uložený v tabuľke Subjects, okrem čísla účastníka a jeho mena SubjectName sú tam aj informácie ako vek Age, pohlavie Sex, dominantná ruka Handedness, zaradenie účastníka do kategórie Category a prípadný komentár Comments.</para>
+				<para>Pre ďalšie vlastnosti účastníkov je určená tabuľka SubjectParameters, kde je okrem čísla záznamu ID a mena SubjectName samotný názov vlastnosti Param a jej hodnota ParamValue.</para>
+				<para>Udalosti záznamu sú v tabuľke TrialEvents v stĺpcoch:</para>
+				<itemizedlist>
+					<listitem>
+						<para>ID - jedinečné číslo záznamu</para>
+					</listitem>
+					<listitem>
+						<para>SubjectName - meno účastníka</para>
+					</listitem>
+					<listitem>
+						<para>TrialSequence - číslo stimulu</para>
+					</listitem>
+					<listitem>
+						<para>EventId - číslo udalosti pre daného participanta</para>
+					</listitem>
+					<listitem>
+						<para>EventTime - Čas udalosti</para>
+					</listitem>
+					<listitem>
+						<para>EventType - Kategória udalosti (napr. Mouse pre udalosti týkajúce sa kliknutia myši</para>
+					</listitem>
+					<listitem>
+						<para>EventTask - Typ udalosti (napr. Up, Down pre stlačenie resp. uvoľnenie tlačidla</para>
+					</listitem>
+					<listitem>
+						<para>EventParam - Ďalšie doplňujúce informácie o udalosti (napr. súradnice kliknutia myši)</para>
+					</listitem>
+				</itemizedlist>
+				<para>Zoznam záznamov stimulov je v tabuľke Trials. Okrem čísla záznamu (ID), mena účastníka (SubjectName) a zatiaľ mne neznámeho prázdneho stĺpca EliminateData sú tam nasledovné hodnoty:</para>
+				<itemizedlist>
+					<listitem>
+						<para>TrialID - číslo stimulu</para>
+					</listitem>
+					<listitem>
+						<para>TrialName - názov stimulu</para>
+					</listitem>
+					<listitem>
+						<para>TrialSequence - číslo stimulu v poradí • Category - kategória stimulu</para>
+					</listitem>
+					<listitem>
+						<para>TrialStartTime - čas začiatku stimulu</para>
+					</listitem>
+					<listitem>
+						<para>Duration - dĺžka trvania stimulu</para>
+					</listitem>
+				</itemizedlist>
+			</section>
+			<section>
+				<title>Zhodnotenie databázového modelu</title>
+				<para>Databázový model by v budúcnosti mohol byť upravený aby názov merania resp. meno účastníka mohlo obsahovať všetky znaky. Na referencovanie merania a taktiež názvy tabuliek by malo slúžiť jeho číslo resp. ID. Taktiež mať údaje rozdelené do viacerých tabuliek s rovnakou štruktúrou je v celku netradičné a ak by sa preukázalo, že to nemá pozitívny vplyv na výkon, ich zlúčenie by mohlo zlepšiť celkovú kvalitu modelu a zdrojového kódu aplikácie.</para>
+			</section>
 		</section>
-	</chapter>
-	<chapter>
-		<title>Import dát</title>
-		<para>Ide o upravený modul importu z CSV, ktorý bol pozmenený na čítanie z JSON súborov s automatickým priradením stĺpcov a potrebným predspracovaním údajov:</para>
 		<section>
-			<title>Súradnice pohľadu a myši</title>
-			<para>V Ogame sú súradnice pohľadu uložené ako 1 pár celých čísel X a Y, ktoré predstavujú pozíciu v pixloch na obrazovke. UX Infraštruktúra zaznamenáva normovanú pozíciu, čiže vo výstupe sú 2 čísla z intervalu h0; 1i pre každé oko. Transformácia spočíva vo vynásobení normovanej pozície nastaveným rozlíšením v projekte v Ogame. Výsledná súradnica vznikne agregovaním súradníc očí podľa nastavenia a to nasledovne: Buď je nastavený režim ”priemerovania”kedy výsledné súradnice sú priemerom hodnoty z pravého a ľavého oka alebo je zvolené dominantné oko a je použitá súradnica len tohoto oka. V prípade, že v zázname je platná súradnica len jedného oka, v oboch prípadoch sa použije iba táto súradnica.</para>
-			<para>Ogama má časy jednotlivých záznamov uložené ako počet mikrosekúnd od začiatku nahrávania. UX Infraštruktúra ukladá ku každému záznamu časovú stopu aktuálneho času s mikrosekundami. Výsledný počet mikrosekúnd je vypočítaný odpočítaním časovej stopy začiatku nahrávania od časovej stopy záznamu.</para>
-			<para>Súradnice myši sú aj v Ogame aj v infraštruktúre v rovnakej forme (v pixloch), preto ich netreba transformovať.</para>
-		</section>
-		<section>
-			<title>Označenie záznamu</title>
-			<para>Ogama používa ako identifikátor merania meno účastníka ale keďže je tento názov použitý aj priamo v názve tabuľky v databáze tak nemôže obsahovať nepovolené znaky a začínať číslom. Ako názov teda bude použitý názov priečinku so súbormi, z ktorého budú odstránené nepovolené znaky. Ak boli odstránené všetky znaky, je používateľ upozornený a priečinok je preskočený.</para>
-		</section>
-		<section>
-			<title>Načítavanie nahrávky obrazovky</title>
-			<para>Načítavanie nahrávky obrazovky sa pri prehrávaní záznamu deje tak, že Ogama sa pozrie, či existuje .avi súbor s názvom participanta a číslom merania. Ak áno, tak ho použije ako podklad pod vizualizáciu záznamov. Na zobrazovanie nahrávky obrazovky sa v Ogame používa knižnica DirectShow s filtrom AVI Splitter, preto očakáva video v kontajneri AVI. Podporované kodeky videa závisia od aktuálne nainštalovaných kodekov na konkrétnej inštalácií Windowsu. Infraštruktúra bežne používa kontajner MP4 a kodek H264, konverzia do ostatných je pomerne jednoduchá pomocou knižnice FFMPEG.</para>
-			<para>Tá je použitá aj v UXI Infraštruktúre.</para>
-			<para>Návrh a implementácia</para>
+			<title>Import dát</title>
+			<para>Ide o upravený modul importu z CSV, ktorý bol pozmenený na čítanie z JSON súborov s automatickým priradením stĺpcov a potrebným predspracovaním údajov:</para>
+			<section>
+				<title>Súradnice pohľadu a myši</title>
+				<para>V Ogame sú súradnice pohľadu uložené ako 1 pár celých čísel X a Y, ktoré predstavujú pozíciu v pixloch na obrazovke. UX Infraštruktúra zaznamenáva normovanú pozíciu, čiže vo výstupe sú 2 čísla z intervalu h0; 1i pre každé oko. Transformácia spočíva vo vynásobení normovanej pozície nastaveným rozlíšením v projekte v Ogame. Výsledná súradnica vznikne agregovaním súradníc očí podľa nastavenia a to nasledovne: Buď je nastavený režim ”priemerovania”kedy výsledné súradnice sú priemerom hodnoty z pravého a ľavého oka alebo je zvolené dominantné oko a je použitá súradnica len tohoto oka. V prípade, že v zázname je platná súradnica len jedného oka, v oboch prípadoch sa použije iba táto súradnica.</para>
+				<para>Ogama má časy jednotlivých záznamov uložené ako počet mikrosekúnd od začiatku nahrávania. UX Infraštruktúra ukladá ku každému záznamu časovú stopu aktuálneho času s mikrosekundami. Výsledný počet mikrosekúnd je vypočítaný odpočítaním časovej stopy začiatku nahrávania od časovej stopy záznamu.</para>
+				<para>Súradnice myši sú aj v Ogame aj v infraštruktúre v rovnakej forme (v pixloch), preto ich netreba transformovať.</para>
+			</section>
+			<section>
+				<title>Označenie záznamu</title>
+				<para>Ogama používa ako identifikátor merania meno účastníka ale keďže je tento názov použitý aj priamo v názve tabuľky v databáze tak nemôže obsahovať nepovolené znaky a začínať číslom. Ako názov teda bude použitý názov priečinku so súbormi, z ktorého budú odstránené nepovolené znaky. Ak boli odstránené všetky znaky, je používateľ upozornený a priečinok je preskočený.</para>
+			</section>
+			<section>
+				<title>Načítavanie nahrávky obrazovky</title>
+				<para>Načítavanie nahrávky obrazovky sa pri prehrávaní záznamu deje tak, že Ogama sa pozrie, či existuje .avi súbor s názvom participanta a číslom merania. Ak áno, tak ho použije ako podklad pod vizualizáciu záznamov. Na zobrazovanie nahrávky obrazovky sa v Ogame používa knižnica DirectShow s filtrom AVI Splitter, preto očakáva video v kontajneri AVI. Podporované kodeky videa závisia od aktuálne nainštalovaných kodekov na konkrétnej inštalácií Windowsu. Infraštruktúra bežne používa kontajner MP4 a kodek H264, konverzia do ostatných je pomerne jednoduchá pomocou knižnice FFMPEG.</para>
+				<para>Tá je použitá aj v UXI Infraštruktúre.</para>
+			</section>
 		</section>
 	</chapter>
 	<chapter>
@@ -342,16 +285,16 @@
 		</section>
 		<section>
 			<title>Pridané grafické rozhranie importu z UXI Infraštruktúry</title>
-			<para>Do okna databázového modulu bolo pridané tlačidlo UXImport, ktoré otvorí vyskakovacie okno prehliadača priečinkov. Po zvolení priečinku sa priečinok prehľadá a prehľadajú sa aj všetky priečinky priamo v ňom. Ak bola aspoň</para>
-			<para>
-				<inlinemediaobject>
+			<para>Do okna databázového modulu bolo pridané tlačidlo UXImport, ktoré otvorí vyskakovacie okno prehliadača priečinkov. Po zvolení priečinku sa priečinok prehľadá a prehľadajú sa aj všetky priečinky priamo v ňom. Ak bola aspoň v jednom priečinku nájdená štruktúra súborov projektu UXI Infraštruktúry tak sa otvorí formulár s nastaveniami importu a zoznamom nájdených priečinkov, z ktorých je možný import vykonať. V opačnom prípade je používateľ o neúspechu informovaný vyskakovacím okienkom. Náhľad formuláru je na <xref  linkend="obrazok_formularImportu"/>.</para>
+			<figure id="obrazok_formularImportu">
+				<title>Snímka formuláru nastavení importu</title>
+				<titleabbrev>Forulár importu</titleabbrev>
+				<mediaobject>
 					<imageobject>
-						<imagedata fileref="BP_files/image4.jpg" contentwidth="460" contentdepth="416"/>
+						<imagedata fileref="BP_files/image4.jpg" scalefit="1" width="75%" align="center"/>
 					</imageobject>
-				</inlinemediaobject>
-			</para>
-			<para>Obr. 3: Snímka formuláru nastavení importu</para>
-			<para>v jednom priečinku nájdená štruktúra súborov projektu UXI Infraštruktúry tak sa otvorí formulár s nastaveniami importu a zoznamom nájdených priečinkov, z ktorých je možný import vykonať. V opačnom prípade je používateľ o neúspechu informovaný vyskakovacím okienkom. Náhľad formuláru je na obrázku 3.</para>
+				</mediaobject>
+			</figure>
 		</section>
 		<section>
 			<title>Scenár importu</title>
