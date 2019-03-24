@@ -1,0 +1,8 @@
+github.url
+generuj.bat
+BP.xml
+thesis.xsl
+thesis-tp-fo.xsl
+_Z2-xcivanm.txt
+
+Malo by stacit spustit: generuj.bat BP.xml
