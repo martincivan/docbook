@@ -58,16 +58,16 @@
 		<title>Analýza</title>
 		<section>
 			<title>Vizualizácia zaznamenaného pohľadu</title>
-			<para>Základnou používanou technikou na zobrazovanie zaznamenaného pohľadu priamo na stimule patrí zobrazovanie trasy pohľadu na dynamickom alebo statickom stimule. Ide o zobrazenie postupnosť fixácií pohľadu ktoré sú pospájané sakádami. Je z nej dobre vidieť presnú trasu pohľadu. Ukážka na <xref  linkend="obrazok_trasa"/>
+			<para>Základnou používanou technikou na zobrazovanie zaznamenaného pohľadu priamo na stimule patrí zobrazovanie trasy pohľadu <indexterm><primary>Vizualizačné techniky</primary><secondary>trasa pohľadu</secondary></indexterm> na dynamickom alebo statickom stimule. Ide o zobrazenie postupnosť fixácií pohľadu ktoré sú pospájané sakádami. Je z nej dobre vidieť presnú trasu pohľadu. Ukážka na <xref  linkend="obrazok_trasa"/>
 			</para>
-			<para>Pri viacerých účastníkoch experimentu je možné tiež tieto údaje agregovať do mapy pozornosti (angl. attention map). Z tejto mapy je zrejmé, v ktorých miestach bol pohľad najviac sústredený. Ukážka na <xref  linkend="obrazok_mapa"/>
+			<para>Pri viacerých účastníkoch experimentu je možné tiež tieto údaje agregovať do mapy pozornosti (angl. attention map) <indexterm><primary>Vizualizačné techniky</primary><secondary>mapa pozornosti (angl. attention map)</secondary></indexterm>. Z tejto mapy je zrejmé, v ktorých miestach bol pohľad najviac sústredený. Ukážka na <xref  linkend="obrazok_mapa"/>
 			<citation>1</citation>
 			</para>
 		</section>
 		<section>
 			<title>Existujúce riešenia</title>
 			<para>K eye-trackerom od spoločnosti Tobii, ktoré sú momentálne na fakulte je na vytvorenie stimulov experimentu, záznam a vizualizáciu záznamu dodávaný softvér Tobii Studio. Ide o proprietárny softvér určený pre operačné systémy z rodiny Windows, ktorý podporuje najpoužívanejšie vyššie uvedené zobrazovacie techniky. Vie však zobrazovať len ním zaznamenané údaje bez nejakej možnosti importu už existujúcich údajov z iného zdroja.</para>
-			<para>Z riešení s otvoreným zdrojovým kódom stojí za zmienku Ogama. 
+			<para>Z riešení s otvoreným zdrojovým kódom stojí za zmienku Ogama<indexterm><primary>Softvér</primary><secondary>Ogama</secondary></indexterm>. 
 				<footnote>
 					<para>
 						<ulink url="http://www.ogama.net/" />
@@ -94,18 +94,18 @@
 			</figure>
 		</section>
 		<section>
-			<title>UXI infraštruktúra</title>
+			<title><indexterm><primary>Softvér</primary><secondary>UXI infraštruktúra</secondary></indexterm>UXI infraštruktúra</title>
 			<para>FIIT je vybavená laboratóriom s názvom UXClass pre skupinové eye-trackingové experimenty. Pre tieto účely bol vytvorený nástroj na riadenie takýchto experimentov s názvom UXI Infraštruktúra, ktorá sa skladá zo serverovej časti UXR na riadenie experimentu a klientskej časti UXC na záznam údajov od jednotlivých zúčastnených. Ide o aplikáciu založenú na technológií .NET, napísanú v jazyku C#, teda je určená pre operačné systémy rodiny Microsoft Windows. Zaznamenané údaje sú zhromaždené a uložené v JSON súboroch a záznam obrazovky, prípadne aj kamery, je uložený v kontajneri MP4. Aktuálne však neexistuje nástroj na plnohodnotné a pohodlné zobrazenie týchto údajov.</para>
 		</section>
 		<section>
 			<title>Ogama na zobrazovanie údajov z UXI Infraštruktúry</title>
 			<section>
 				<title>Základné vlastnosti</title>
-				<para>Ogama má základné požadované vizualizačné funkcie a má otvorený zdrojový kód preto je ju vhodné použiť ako základ riešenia. Ide o Windows Forms aplikáciu napísanú v jazyku C# s použitím rámca .NET verzie 4. Na zobrazovanie videa používa knižnicu DirectShow, na uskladnenie údajov slúži SQLite databáza. Vďaka rámcu .NET spolu s Windows Forms a DirectShow je momentálne možné túto aplikáciu natívne používať výhradne na operačných systémoch Microsoft Windows. To je síce nevýhoda ale nie je to zhoršenie oproti aktuálne používanému TobiiStudiu, ktoré natívne podporuje tiež len operačný systém Windows.</para>
+				<para>Ogama má základné požadované vizualizačné funkcie a má otvorený zdrojový kód preto je ju vhodné použiť ako základ riešenia. Ide o Windows Forms <indexterm><primary>Knižnice</primary><secondary>Windows Forms</secondary></indexterm> aplikáciu napísanú v jazyku C# s použitím rámca .NET verzie 4 <indexterm><primary>Knižnice</primary><secondary>.NET</secondary></indexterm>. Na zobrazovanie videa používa knižnicu DirectShow, na uskladnenie údajov slúži SQLite databáza. Vďaka rámcu .NET spolu s Windows Forms a DirectShow je momentálne možné túto aplikáciu natívne používať výhradne na operačných systémoch Microsoft Windows. To je síce nevýhoda ale nie je to zhoršenie oproti aktuálne používanému TobiiStudiu, ktoré natívne podporuje tiež len operačný systém Windows.</para>
 			</section>
 			<section>
 				<title>Úložisko údajov</title>
-				<para>SQLite prináša so sebou výhody aj nevýhody - na používanie síce nie je potrebný špeciálny databázový server ale pri väčších meraniach to môže spôsobiť zvýšené hardvérové nároky na počítač. Z git repozitára je zrejmé, že v minulosti Ogama používala Microsoft SQL Server. Pre účely fakulty by centralizovaný databázový SQL server bol vhodnejší nielen kvôli nižším nárokom na počítač počas analyzovania ale aj kvôli lepším možnostiam zdieľania údajov medzi projektami. V prípade, keď sú údaje uložené na kvalitnom serveri s RAID-om tak sa používateľ nemusí priamo starať o ich zálohovanie. Uvažovali sme nad zmenou na multiplatformový server MySQL prípadne PostgreSQL ale zatiaľ sme sa rozhodli úložisko dát ponechať na SQLite z viacerých dôvodov: Zatiaľ nie je jasné, či sa Ogama uchytí v praxi a teda sme si v rámci tejto práce určili ako prioritu základnú kompatibilitu, ktorou je možnosť jednoduchého importu dát a tiež nie je jasné, kto a ako by sa o prípadný server staral. SQLite momentálne nepredstavuje prekážku vo funkčnosti a keď sa naše riešenie osvedčí aj v praxi je možné ho kedykoľvek pomerne jednoducho upraviť aby pracovalo s iným SQL úložiskom.</para>
+				<para>SQLite <indexterm><primary>Databázy</primary><secondary>SQLite</secondary></indexterm> prináša so sebou výhody aj nevýhody - na používanie síce nie je potrebný špeciálny databázový server ale pri väčších meraniach to môže spôsobiť zvýšené hardvérové nároky na počítač. Z git repozitára je zrejmé, že v minulosti Ogama používala Microsoft SQL Server <indexterm><primary>Databázy</primary><secondary>Microsoft SQL Server</secondary></indexterm>. Pre účely fakulty by centralizovaný databázový SQL server bol vhodnejší nielen kvôli nižším nárokom na počítač počas analyzovania ale aj kvôli lepším možnostiam zdieľania údajov medzi projektami. V prípade, keď sú údaje uložené na kvalitnom serveri s RAID-om tak sa používateľ nemusí priamo starať o ich zálohovanie. Uvažovali sme nad zmenou na multiplatformový server MySQL  prípadne PostgreSQL <indexterm><primary>Databázy</primary><secondary>PostgreSQL</secondary></indexterm> ale zatiaľ sme sa rozhodli úložisko dát ponechať na SQLite z viacerých dôvodov: Zatiaľ nie je jasné, či sa Ogama uchytí v praxi a teda sme si v rámci tejto práce určili ako prioritu základnú kompatibilitu, ktorou je možnosť jednoduchého importu dát a tiež nie je jasné, kto a ako by sa o prípadný server staral. SQLite momentálne nepredstavuje prekážku vo funkčnosti a keď sa naše riešenie osvedčí aj v praxi je možné ho kedykoľvek pomerne jednoducho upraviť aby pracovalo s iným SQL úložiskom.</para>
 			</section>
 			<section>
 				<title>Databázový model</title>
@@ -272,7 +272,7 @@
 			</section>
 			<section>
 				<title>Načítavanie nahrávky obrazovky</title>
-				<para>Načítavanie nahrávky obrazovky sa pri prehrávaní záznamu deje tak, že Ogama sa pozrie, či existuje .avi súbor s názvom participanta a číslom merania. Ak áno, tak ho použije ako podklad pod vizualizáciu záznamov. Na zobrazovanie nahrávky obrazovky sa v Ogame používa knižnica DirectShow s filtrom AVI Splitter, preto očakáva video v kontajneri AVI. Podporované kodeky videa závisia od aktuálne nainštalovaných kodekov na konkrétnej inštalácií Windowsu. Infraštruktúra bežne používa kontajner MP4 a kodek H264, konverzia do ostatných je pomerne jednoduchá pomocou knižnice FFMPEG.</para>
+				<para>Načítavanie nahrávky obrazovky sa pri prehrávaní záznamu deje tak, že Ogama sa pozrie, či existuje .avi súbor s názvom participanta a číslom merania. Ak áno, tak ho použije ako podklad pod vizualizáciu záznamov. Na zobrazovanie nahrávky obrazovky sa v Ogame používa knižnica DirectShow <indexterm><primary>Knižnice</primary><secondary>DirectShow</secondary></indexterm> s filtrom AVI Splitter <indexterm><primary>Knižnice</primary><secondary>AVI Splitter</secondary></indexterm>, preto očakáva video v kontajneri AVI. Podporované kodeky videa závisia od aktuálne nainštalovaných kodekov na konkrétnej inštalácií Windowsu. Infraštruktúra bežne používa kontajner MP4 a kodek H264, konverzia do ostatných je pomerne jednoduchá pomocou knižnice FFMPEG.</para>
 				<para>Tá je použitá aj v UXI Infraštruktúre.</para>
 			</section>
 		</section>
@@ -296,7 +296,7 @@
 			<para>Do okna databázového modulu bolo pridané tlačidlo UXImport, ktoré otvorí vyskakovacie okno prehliadača priečinkov. Po zvolení priečinku sa priečinok prehľadá a prehľadajú sa aj všetky priečinky priamo v ňom. Ak bola aspoň v jednom priečinku nájdená štruktúra súborov projektu UXI Infraštruktúry tak sa otvorí formulár s nastaveniami importu a zoznamom nájdených priečinkov, z ktorých je možný import vykonať. V opačnom prípade je používateľ o neúspechu informovaný vyskakovacím okienkom. Náhľad formuláru je na <xref  linkend="obrazok_formularImportu"/>.</para>
 			<figure id="obrazok_formularImportu">
 				<title>Snímka formuláru nastavení importu</title>
-				<titleabbrev>Forulár importu</titleabbrev>
+				<titleabbrev>Formulár importu</titleabbrev>
 				<mediaobject>
 					<imageobject>
 						<imagedata fileref="BP_files/image4.jpg" scalefit="1" width="75%" align="center"/>
@@ -345,6 +345,7 @@
 			Blascheck, T., Kurzhals, K., Raschke, M., Burch, M., Weiskopf, D., and Ertl, T. State-of-the-Art of Visualization for Eye Tracking Data. In EuroVis - STARs (2014), R. Borgo, R. Maciejewski, and I. Viola, Eds., The Eurographics Association.
 		</bibliomixed>
 	</bibliography>
+	<index />
 	<appendix>
 		<title>Plán pokračovania práce</title>
 		<orderedlist>
