@@ -35,6 +35,14 @@
 			<para>
 				<?hskip 300pt?>Martin Civáň</para>
 		</abstract>
+		<abstract>
+			<title>Zadanie</title>
+			<mediaobject>
+				<imageobject>
+					<imagedata fileref="BP_files/image1.jpg" scalefit="1" width="100%" align="center"/>
+				</imageobject>
+			</mediaobject>
+		</abstract>
 	</bookinfo>
 	<chapter>
 		<title>Úvod</title>
@@ -101,7 +109,7 @@
 					<primary>Softvér</primary>
 					<secondary>UXI infraštruktúra</secondary>
 				</indexterm>UXI infraštruktúra</title>
-			<para>FIIT je vybavená laboratóriom s názvom UXClass pre skupinové eye-trackingové experimenty. Pre tieto účely bol vytvorený nástroj na riadenie takýchto experimentov s názvom UXI Infraštruktúra, ktorá sa skladá zo serverovej časti UXR na riadenie experimentu a klientskej časti UXC na záznam údajov od jednotlivých zúčastnených. Ide o aplikáciu založenú na technológií .NET, napísanú v jazyku C#, teda je určená pre operačné systémy rodiny Microsoft Windows. Zaznamenané údaje sú zhromaždené a uložené v JSON súboroch a záznam obrazovky, prípadne aj kamery, je uložený v kontajneri MP4. Aktuálne však neexistuje nástroj na plnohodnotné a pohodlné zobrazenie týchto údajov.</para>
+			<para>FIIT je vybavená laboratóriom s názvom UXClass pre skupinové eye-trackingové experimenty. Pre tieto účely bol vytvorený nástroj na riadenie takýchto experimentov s názvom UXI Infraštruktúra, ktorá sa skladá zo serverovej časti UXR na riadenie experimentu a klientskej časti UXC na záznam údajov od jednotlivých zúčastnených. Ide o aplikáciu založenú na technológií <emphasis>.NET</emphasis>, napísanú v jazyku <emphasis>C#</emphasis>, teda je určená pre operačné systémy rodiny Microsoft Windows. Zaznamenané údaje sú zhromaždené a uložené v JSON súboroch a záznam obrazovky, prípadne aj kamery, je uložený v kontajneri MP4. Aktuálne však neexistuje nástroj na plnohodnotné a pohodlné zobrazenie týchto údajov.</para>
 		</section>
 		<section>
 			<title>Ogama na zobrazovanie údajov z UXI Infraštruktúry</title>
@@ -317,33 +325,35 @@
 		<section>
 			<title>Trieda importu z UXI Infraštruktúry</title>
 			<para>Import z UXI infraštruktúry je riešený ako statická trieda do databázového modulu a funguje na podobnom princípe ako existujúci import z CSV súboru. Najprv sa vytvorí celý JSON objekt so záznamom pohľadu. Potom sa prechádzajú jednotlivé záznamy v objekte a robia sa potrebné transformácie. Transformovanými údajmi sa následne naplnia objekty databázových riadkov z tabuľky surových dát. Následne sa rovnakým spôsobom spracujú záznamy o myši. Potom sa všetky riadky zapíšu do databázy a pokračuje vykonávanie, ktoré je prebraté z importu z CSV súborov, ktoré zahŕňa napríklad výpočet oblastí záujmov.</para>
-			<para>V spotrebe pamäte pri použití rôznych JSON parserov sa pomerne výrazné rozdiely, úplné porovnanie je v tabuľke <xref linkend="spotreba" /> </para>
-			<table frame='all' id="spotreba"><title>Porovnanie spotreby pamäte pri použití rôznych JSON parserov na testovacom vstupe.</title>
-<tgroup cols='2' align='left' colsep='1' rowsep='1'>
-<colspec colname='c1'/>
-<colspec colname='c2'/>
-<thead>
-<row>
-  <entry>Parser</entry>
-  <entry>Spotreba pamäte</entry>
-</row>
-</thead>
-<tbody>
-<row>
-  <entry>JavaScriptSerializer</entry>
-  <entry>~2GB</entry>
-</row>
-<row>
-  <entry>JSONSerializer</entry>
-  <entry>~3.5GB</entry>
-</row>
-<row>
-  <entry>JSONReader</entry>
-  <entry>~4GB</entry>
-</row>
-</tbody>
-</tgroup>
-</table>
+			<para>V spotrebe pamäte pri použití rôznych JSON parserov sa pomerne výrazné rozdiely, úplné porovnanie je v tabuľke <xref linkend="spotreba" />
+			</para>
+			<table frame='all' id="spotreba">
+				<title>Porovnanie spotreby pamäte pri použití rôznych JSON parserov na testovacom vstupe.</title>
+				<tgroup cols='2' align='left' colsep='1' rowsep='1'>
+					<colspec colname='c1'/>
+					<colspec colname='c2'/>
+					<thead>
+						<row>
+							<entry>Parser</entry>
+							<entry>Spotreba pamäte</entry>
+						</row>
+					</thead>
+					<tbody>
+						<row>
+							<entry>JavaScriptSerializer</entry>
+							<entry>~2GB</entry>
+						</row>
+						<row>
+							<entry>JSONSerializer</entry>
+							<entry>~3.5GB</entry>
+						</row>
+						<row>
+							<entry>JSONReader</entry>
+							<entry>~4GB</entry>
+						</row>
+					</tbody>
+				</tgroup>
+			</table>
 		</section>
 		<section>
 			<title>Pridané grafické rozhranie importu z UXI Infraštruktúry</title>
