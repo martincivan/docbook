@@ -19,11 +19,7 @@
 		<pubdate>Marec 2019</pubdate>
 		<abstract>
 			<title>Anotácia</title>
-
 			<para>Bakalárska práca sa zaoberá upravením existujúceho nástroja na vizualizáciu zaznamenaného pohľadu, tak aby bol použiteľný s existujúcou infraštruktúrou na FIIT.</para>
-
-			<para>Anotace by měla stručně shrnout obsah práce a její
-      výsledky.</para>
 		</abstract>
 
 		<abstract lang="en">
@@ -50,7 +46,12 @@
 	<chapter>
 		<title>Úvod</title>
 		<para>Pri zobrazovaní zaznamenaného pohľadu sa používajú rôzne zobrazovacie techniky. Okrem rôznorodých čiarových, prípadne stĺpcových grafov, ktoré môžu zobrazovať rôzne číselné alebo štatistické metriky je na základné nahliadnutie do dát vhodné použiť zobrazovanie pohľadu priamo na stimule.</para>
-		<para>Väčšina nástrojov na vytvorenie stimulov experimentu a samotný záznam ponúka aj samotné vizualizačné možnosti. Na FIIT však máme laboratórium, v ktorom sa môže konať experiment až pre 20 účastníkov naraz. Na takúto úlohu nie sú bežné nástroje optimálne a preto bola vyvinutá UXI Infraštruktúra. Tá slúži na rozdistribuovanie zadania experimentu do počítačov účastníkov, na samotné zobrazenie stimulov a zaznamenanie meraných údajov. Po experimente namerané údaje zhromaždí na jedno miesto. Vizualizačný nástroj však nemá a zaznamenané údaje nie je možné nijako jednoducho vizualizovať.</para>
+		<para>Väčšina nástrojov na vytvorenie stimulov experimentu a samotný záznam ponúka aj samotné vizualizačné možnosti. Na FIIT však máme laboratórium, v ktorom sa môže konať experiment až pre 20 účastníkov naraz. Na takúto úlohu nie sú bežné nástroje optimálne a preto bola vyvinutá UXI Infraštruktúra.
+			<footnote>
+				<para>
+					<ulink url="https://github.com/uxifiit/" />
+				</para>
+			</footnote> Tá slúži na rozdistribuovanie zadania experimentu do počítačov účastníkov, na samotné zobrazenie stimulov a zaznamenanie meraných údajov. Po experimente namerané údaje zhromaždí na jedno miesto. Vizualizačný nástroj však nemá a zaznamenané údaje nie je možné nijako jednoducho vizualizovať.</para>
 		<para>V rámci tejto práce sme preto navrhli a doplnili možnosť importu údajov z UXI Infraštruktúri do existujúceho programu Ogama. Ogama je softvér s otvoreným zdrojovým kódom, ktorý slúži na návrh experimentu, záznam a vizualizáciu. Po rýchlom a jednoduchom naimportovaní údajov je teda možné použiť vizualizačný modul Ogamy na základné nahliadnutie do získaných údajov.</para>
 	</chapter>
 	<chapter>
@@ -60,12 +61,19 @@
 			<para>Základnou používanou technikou na zobrazovanie zaznamenaného pohľadu priamo na stimule patrí zobrazovanie trasy pohľadu na dynamickom alebo statickom stimule. Ide o zobrazenie postupnosť fixácií pohľadu ktoré sú pospájané sakádami. Je z nej dobre vidieť presnú trasu pohľadu. Ukážka na <xref  linkend="obrazok_trasa"/>
 			</para>
 			<para>Pri viacerých účastníkoch experimentu je možné tiež tieto údaje agregovať do mapy pozornosti (angl. attention map). Z tejto mapy je zrejmé, v ktorých miestach bol pohľad najviac sústredený. Ukážka na <xref  linkend="obrazok_mapa"/>
+			<citation>1</citation>
 			</para>
 		</section>
 		<section>
 			<title>Existujúce riešenia</title>
 			<para>K eye-trackerom od spoločnosti Tobii, ktoré sú momentálne na fakulte je na vytvorenie stimulov experimentu, záznam a vizualizáciu záznamu dodávaný softvér Tobii Studio. Ide o proprietárny softvér určený pre operačné systémy z rodiny Windows, ktorý podporuje najpoužívanejšie vyššie uvedené zobrazovacie techniky. Vie však zobrazovať len ním zaznamenané údaje bez nejakej možnosti importu už existujúcich údajov z iného zdroja.</para>
-			<para>Z riešení s otvoreným zdrojovým kódom stojí za zmienku Ogama. Skladá sa z viacerých modulov: Dizajnovací modul je určený na vytvorenie stimulov a zostavenie experimentu. Podporuje rôzne scenáre, napríklad snímkovú prezentáciu, Flash video alebo len čistý záznam obrazovky. Záznamový modul umožňuje zobrazovanie stimulov, zaznamenávanie pohľadu, myši, prípadne obrazovky naraz jedného účastníka experimentu a následné vypočítanicií a zápis údajov do databázy. Zaznamenané údaje sa dajú zobraziť pomocou zobrazovacích modulov. Tieto moduly podporujú zobrazovanie postupnosti fixácii pohľadu a myši na stimuloch. Pri statických podkladoch vedia zobraziť aj tepelnú mapu. Taktiež je možné výsledok exportovať do videa v kontajneri AVI. V databázovom module sa dajú zobraziť, prípadne aj upraviť hodnoty zaznamenaných údajov a taktiež je možný import údajov z CSV súboru.</para>
+			<para>Z riešení s otvoreným zdrojovým kódom stojí za zmienku Ogama. 
+				<footnote>
+					<para>
+						<ulink url="http://www.ogama.net/" />
+						<ulink url="https://github.com/avosskuehler/ogama/" />
+					</para>
+				</footnote> Skladá sa z viacerých modulov: Dizajnovací modul je určený na vytvorenie stimulov a zostavenie experimentu. Podporuje rôzne scenáre, napríklad snímkovú prezentáciu, Flash video alebo len čistý záznam obrazovky. Záznamový modul umožňuje zobrazovanie stimulov, zaznamenávanie pohľadu, myši, prípadne obrazovky naraz jedného účastníka experimentu a následné vypočítanicií a zápis údajov do databázy. Zaznamenané údaje sa dajú zobraziť pomocou zobrazovacích modulov. Tieto moduly podporujú zobrazovanie postupnosti fixácii pohľadu a myši na stimuloch. Pri statických podkladoch vedia zobraziť aj tepelnú mapu. Taktiež je možné výsledok exportovať do videa v kontajneri AVI. V databázovom module sa dajú zobraziť, prípadne aj upraviť hodnoty zaznamenaných údajov a taktiež je možný import údajov z CSV súboru.</para>
 			<figure id="obrazok_trasa">
 				<title>Zobrazenie trasy pohľadu (angl. scanpath) pomocou nástroja Ogama</title>
 				<titleabbrev>Trasa pohľadu</titleabbrev>
@@ -330,10 +338,15 @@
 			<para>Zatiaľ je ešte implementovaný iba import údajov o pohľade a myši ale plánujeme dorobiť aj import udalostí. Taktiež je v pláne analyzovať a prípadne aj implementovať export definície experimentu vo formáte UXI infraštruktúry.</para>
 		</section>
 	</chapter>
-	<chapter>
+	<bibliography>
 		<title>Literatúra</title>
-		<para>[1] Blascheck, T., Kurzhals, K., Raschke, M., Burch, M., Weiskopf, D., and Ertl, T. State-of-the-Art of Visualization for Eye Tracking Data. In EuroVis - STARs (2014), R. Borgo, R. Maciejewski, and I. Viola, Eds., The Eurographics Association.</para>
-		<para>Plán pokračovania práce</para>
+		<bibliomixed>
+		<abbrev>1</abbrev>
+			Blascheck, T., Kurzhals, K., Raschke, M., Burch, M., Weiskopf, D., and Ertl, T. State-of-the-Art of Visualization for Eye Tracking Data. In EuroVis - STARs (2014), R. Borgo, R. Maciejewski, and I. Viola, Eds., The Eurographics Association.
+		</bibliomixed>
+	</bibliography>
+	<appendix>
+		<title>Plán pokračovania práce</title>
 		<orderedlist>
 			<listitem>
 				<para>Behom prvých týždňov mať dokončený automatizovaný import aj s videom a importom udalostí.</para>
@@ -354,5 +367,5 @@
 				<para>Dokončiť prácu.</para>
 			</listitem>
 		</orderedlist>
-	</chapter>
+	</appendix>
 </book>

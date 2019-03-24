@@ -173,7 +173,7 @@ task before
 
 <!-- na zaèátku budeme vypisovat jen obsah, žádné seznamy obrázkù, tabulek, pøíkladù apod. -->
 <xsl:param name="generate.toc">
-book      title,toc
+book      title,toc,figure
 </xsl:param>
 
 <!-- vìtší okraje kolem formálních nesmyslù -->
@@ -332,6 +332,27 @@ book      title,toc
 </xsl:attribute-set>
 
 <xsl:attribute-set name="chap.title.properties" use-attribute-sets="chap.label.properties">
+  <xsl:attribute name="margin-top">0.5em</xsl:attribute>
+</xsl:attribute-set>
+
+<xsl:attribute-set name="chap.label.properties.common">
+  <xsl:attribute name="font-size">
+    <xsl:value-of select="$body.font.master * 2"/>
+    <xsl:text>pt</xsl:text>
+  </xsl:attribute>
+  <xsl:attribute name="font-weight">bold</xsl:attribute>
+  <xsl:attribute name="hyphenate">false</xsl:attribute>
+  <xsl:attribute name="margin-top">2em</xsl:attribute>
+  <xsl:attribute name="space-after.minimum">1.5em</xsl:attribute>
+  <xsl:attribute name="space-after.optimum">1.2em</xsl:attribute>
+  <xsl:attribute name="space-after.maximum">1.8em</xsl:attribute>
+</xsl:attribute-set>
+
+<xsl:attribute-set name="chap.label.properties" use-attribute-sets="chap.label.properties.common">
+  <xsl:attribute name="text-transform">capitalize</xsl:attribute>
+</xsl:attribute-set>
+
+<xsl:attribute-set name="chap.title.properties" use-attribute-sets="chap.label.properties.common">
   <xsl:attribute name="margin-top">0.5em</xsl:attribute>
 </xsl:attribute-set>
 
