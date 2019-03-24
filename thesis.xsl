@@ -173,7 +173,7 @@ task before
 
 <!-- na zaèátku budeme vypisovat jen obsah, žádné seznamy obrázkù, tabulek, pøíkladù apod. -->
 <xsl:param name="generate.toc">
-book      title,toc,figure
+book      title,toc,figure,table
 </xsl:param>
 
 <!-- vìtší okraje kolem formálních nesmyslù -->

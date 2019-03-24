@@ -21,13 +21,6 @@
 			<title>Anotácia</title>
 			<para>Bakalárska práca sa zaoberá upravením existujúceho nástroja na vizualizáciu zaznamenaného pohľadu, tak aby bol použiteľný s existujúcou infraštruktúrou na FIIT.</para>
 		</abstract>
-
-		<abstract lang="en">
-			<title>Annotation</title>
-
-			<para>Annotation, but now in English.</para>
-		</abstract>
-
 		<abstract>
 			<title>Vyhlásenie</title>
 
@@ -58,16 +51,25 @@
 		<title>Analýza</title>
 		<section>
 			<title>Vizualizácia zaznamenaného pohľadu</title>
-			<para>Základnou používanou technikou na zobrazovanie zaznamenaného pohľadu priamo na stimule patrí zobrazovanie trasy pohľadu <indexterm><primary>Vizualizačné techniky</primary><secondary>trasa pohľadu</secondary></indexterm> na dynamickom alebo statickom stimule. Ide o zobrazenie postupnosť fixácií pohľadu ktoré sú pospájané sakádami. Je z nej dobre vidieť presnú trasu pohľadu. Ukážka na <xref  linkend="obrazok_trasa"/>
+			<para>Základnou používanou technikou na zobrazovanie zaznamenaného pohľadu priamo na stimule patrí zobrazovanie trasy pohľadu <indexterm>
+					<primary>Vizualizačné techniky</primary>
+					<secondary>trasa pohľadu</secondary>
+				</indexterm> na dynamickom alebo statickom stimule. Ide o zobrazenie postupnosť fixácií pohľadu ktoré sú pospájané sakádami. Je z nej dobre vidieť presnú trasu pohľadu. Ukážka na <xref  linkend="obrazok_trasa"/>
 			</para>
-			<para>Pri viacerých účastníkoch experimentu je možné tiež tieto údaje agregovať do mapy pozornosti (angl. attention map) <indexterm><primary>Vizualizačné techniky</primary><secondary>mapa pozornosti (angl. attention map)</secondary></indexterm>. Z tejto mapy je zrejmé, v ktorých miestach bol pohľad najviac sústredený. Ukážka na <xref  linkend="obrazok_mapa"/>
-			<citation>1</citation>
+			<para>Pri viacerých účastníkoch experimentu je možné tiež tieto údaje agregovať do mapy pozornosti (angl. attention map) <indexterm>
+					<primary>Vizualizačné techniky</primary>
+					<secondary>mapa pozornosti (angl. attention map)</secondary>
+				</indexterm>. Z tejto mapy je zrejmé, v ktorých miestach bol pohľad najviac sústredený. Ukážka na <xref  linkend="obrazok_mapa"/>
+				<citation>1</citation>
 			</para>
 		</section>
 		<section>
 			<title>Existujúce riešenia</title>
 			<para>K eye-trackerom od spoločnosti Tobii, ktoré sú momentálne na fakulte je na vytvorenie stimulov experimentu, záznam a vizualizáciu záznamu dodávaný softvér Tobii Studio. Ide o proprietárny softvér určený pre operačné systémy z rodiny Windows, ktorý podporuje najpoužívanejšie vyššie uvedené zobrazovacie techniky. Vie však zobrazovať len ním zaznamenané údaje bez nejakej možnosti importu už existujúcich údajov z iného zdroja.</para>
-			<para>Z riešení s otvoreným zdrojovým kódom stojí za zmienku Ogama<indexterm><primary>Softvér</primary><secondary>Ogama</secondary></indexterm>. 
+			<para>Z riešení s otvoreným zdrojovým kódom stojí za zmienku Ogama<indexterm>
+					<primary>Softvér</primary>
+					<secondary>Ogama</secondary>
+				</indexterm>. 
 				<footnote>
 					<para>
 						<ulink url="http://www.ogama.net/" />
@@ -94,18 +96,37 @@
 			</figure>
 		</section>
 		<section>
-			<title><indexterm><primary>Softvér</primary><secondary>UXI infraštruktúra</secondary></indexterm>UXI infraštruktúra</title>
+			<title>
+				<indexterm>
+					<primary>Softvér</primary>
+					<secondary>UXI infraštruktúra</secondary>
+				</indexterm>UXI infraštruktúra</title>
 			<para>FIIT je vybavená laboratóriom s názvom UXClass pre skupinové eye-trackingové experimenty. Pre tieto účely bol vytvorený nástroj na riadenie takýchto experimentov s názvom UXI Infraštruktúra, ktorá sa skladá zo serverovej časti UXR na riadenie experimentu a klientskej časti UXC na záznam údajov od jednotlivých zúčastnených. Ide o aplikáciu založenú na technológií .NET, napísanú v jazyku C#, teda je určená pre operačné systémy rodiny Microsoft Windows. Zaznamenané údaje sú zhromaždené a uložené v JSON súboroch a záznam obrazovky, prípadne aj kamery, je uložený v kontajneri MP4. Aktuálne však neexistuje nástroj na plnohodnotné a pohodlné zobrazenie týchto údajov.</para>
 		</section>
 		<section>
 			<title>Ogama na zobrazovanie údajov z UXI Infraštruktúry</title>
 			<section>
 				<title>Základné vlastnosti</title>
-				<para>Ogama má základné požadované vizualizačné funkcie a má otvorený zdrojový kód preto je ju vhodné použiť ako základ riešenia. Ide o Windows Forms <indexterm><primary>Knižnice</primary><secondary>Windows Forms</secondary></indexterm> aplikáciu napísanú v jazyku C# s použitím rámca .NET verzie 4 <indexterm><primary>Knižnice</primary><secondary>.NET</secondary></indexterm>. Na zobrazovanie videa používa knižnicu DirectShow, na uskladnenie údajov slúži SQLite databáza. Vďaka rámcu .NET spolu s Windows Forms a DirectShow je momentálne možné túto aplikáciu natívne používať výhradne na operačných systémoch Microsoft Windows. To je síce nevýhoda ale nie je to zhoršenie oproti aktuálne používanému TobiiStudiu, ktoré natívne podporuje tiež len operačný systém Windows.</para>
+				<para>Ogama má základné požadované vizualizačné funkcie a má otvorený zdrojový kód preto je ju vhodné použiť ako základ riešenia. Ide o Windows Forms <indexterm>
+						<primary>Knižnice</primary>
+						<secondary>Windows Forms</secondary>
+					</indexterm> aplikáciu napísanú v jazyku C# s použitím rámca .NET verzie 4 <indexterm>
+						<primary>Knižnice</primary>
+						<secondary>.NET</secondary>
+					</indexterm>. Na zobrazovanie videa používa knižnicu DirectShow, na uskladnenie údajov slúži SQLite databáza. Vďaka rámcu .NET spolu s Windows Forms a DirectShow je momentálne možné túto aplikáciu natívne používať výhradne na operačných systémoch Microsoft Windows. To je síce nevýhoda ale nie je to zhoršenie oproti aktuálne používanému TobiiStudiu, ktoré natívne podporuje tiež len operačný systém Windows.</para>
 			</section>
 			<section>
 				<title>Úložisko údajov</title>
-				<para>SQLite <indexterm><primary>Databázy</primary><secondary>SQLite</secondary></indexterm> prináša so sebou výhody aj nevýhody - na používanie síce nie je potrebný špeciálny databázový server ale pri väčších meraniach to môže spôsobiť zvýšené hardvérové nároky na počítač. Z git repozitára je zrejmé, že v minulosti Ogama používala Microsoft SQL Server <indexterm><primary>Databázy</primary><secondary>Microsoft SQL Server</secondary></indexterm>. Pre účely fakulty by centralizovaný databázový SQL server bol vhodnejší nielen kvôli nižším nárokom na počítač počas analyzovania ale aj kvôli lepším možnostiam zdieľania údajov medzi projektami. V prípade, keď sú údaje uložené na kvalitnom serveri s RAID-om tak sa používateľ nemusí priamo starať o ich zálohovanie. Uvažovali sme nad zmenou na multiplatformový server MySQL  prípadne PostgreSQL <indexterm><primary>Databázy</primary><secondary>PostgreSQL</secondary></indexterm> ale zatiaľ sme sa rozhodli úložisko dát ponechať na SQLite z viacerých dôvodov: Zatiaľ nie je jasné, či sa Ogama uchytí v praxi a teda sme si v rámci tejto práce určili ako prioritu základnú kompatibilitu, ktorou je možnosť jednoduchého importu dát a tiež nie je jasné, kto a ako by sa o prípadný server staral. SQLite momentálne nepredstavuje prekážku vo funkčnosti a keď sa naše riešenie osvedčí aj v praxi je možné ho kedykoľvek pomerne jednoducho upraviť aby pracovalo s iným SQL úložiskom.</para>
+				<para>SQLite <indexterm>
+						<primary>Databázy</primary>
+						<secondary>SQLite</secondary>
+					</indexterm> prináša so sebou výhody aj nevýhody - na používanie síce nie je potrebný špeciálny databázový server ale pri väčších meraniach to môže spôsobiť zvýšené hardvérové nároky na počítač. Z git repozitára je zrejmé, že v minulosti Ogama používala Microsoft SQL Server <indexterm>
+						<primary>Databázy</primary>
+						<secondary>Microsoft SQL Server</secondary>
+					</indexterm>. Pre účely fakulty by centralizovaný databázový SQL server bol vhodnejší nielen kvôli nižším nárokom na počítač počas analyzovania ale aj kvôli lepším možnostiam zdieľania údajov medzi projektami. V prípade, keď sú údaje uložené na kvalitnom serveri s RAID-om tak sa používateľ nemusí priamo starať o ich zálohovanie. Uvažovali sme nad zmenou na multiplatformový server MySQL  prípadne PostgreSQL <indexterm>
+						<primary>Databázy</primary>
+						<secondary>PostgreSQL</secondary>
+					</indexterm> ale zatiaľ sme sa rozhodli úložisko dát ponechať na SQLite z viacerých dôvodov: Zatiaľ nie je jasné, či sa Ogama uchytí v praxi a teda sme si v rámci tejto práce určili ako prioritu základnú kompatibilitu, ktorou je možnosť jednoduchého importu dát a tiež nie je jasné, kto a ako by sa o prípadný server staral. SQLite momentálne nepredstavuje prekážku vo funkčnosti a keď sa naše riešenie osvedčí aj v praxi je možné ho kedykoľvek pomerne jednoducho upraviť aby pracovalo s iným SQL úložiskom.</para>
 			</section>
 			<section>
 				<title>Databázový model</title>
@@ -272,7 +293,13 @@
 			</section>
 			<section>
 				<title>Načítavanie nahrávky obrazovky</title>
-				<para>Načítavanie nahrávky obrazovky sa pri prehrávaní záznamu deje tak, že Ogama sa pozrie, či existuje .avi súbor s názvom participanta a číslom merania. Ak áno, tak ho použije ako podklad pod vizualizáciu záznamov. Na zobrazovanie nahrávky obrazovky sa v Ogame používa knižnica DirectShow <indexterm><primary>Knižnice</primary><secondary>DirectShow</secondary></indexterm> s filtrom AVI Splitter <indexterm><primary>Knižnice</primary><secondary>AVI Splitter</secondary></indexterm>, preto očakáva video v kontajneri AVI. Podporované kodeky videa závisia od aktuálne nainštalovaných kodekov na konkrétnej inštalácií Windowsu. Infraštruktúra bežne používa kontajner MP4 a kodek H264, konverzia do ostatných je pomerne jednoduchá pomocou knižnice FFMPEG.</para>
+				<para>Načítavanie nahrávky obrazovky sa pri prehrávaní záznamu deje tak, že Ogama sa pozrie, či existuje .avi súbor s názvom participanta a číslom merania. Ak áno, tak ho použije ako podklad pod vizualizáciu záznamov. Na zobrazovanie nahrávky obrazovky sa v Ogame používa knižnica DirectShow <indexterm>
+						<primary>Knižnice</primary>
+						<secondary>DirectShow</secondary>
+					</indexterm> s filtrom AVI Splitter <indexterm>
+						<primary>Knižnice</primary>
+						<secondary>AVI Splitter</secondary>
+					</indexterm>, preto očakáva video v kontajneri AVI. Podporované kodeky videa závisia od aktuálne nainštalovaných kodekov na konkrétnej inštalácií Windowsu. Infraštruktúra bežne používa kontajner MP4 a kodek H264, konverzia do ostatných je pomerne jednoduchá pomocou knižnice FFMPEG.</para>
 				<para>Tá je použitá aj v UXI Infraštruktúre.</para>
 			</section>
 		</section>
@@ -290,6 +317,33 @@
 		<section>
 			<title>Trieda importu z UXI Infraštruktúry</title>
 			<para>Import z UXI infraštruktúry je riešený ako statická trieda do databázového modulu a funguje na podobnom princípe ako existujúci import z CSV súboru. Najprv sa vytvorí celý JSON objekt so záznamom pohľadu. Potom sa prechádzajú jednotlivé záznamy v objekte a robia sa potrebné transformácie. Transformovanými údajmi sa následne naplnia objekty databázových riadkov z tabuľky surových dát. Následne sa rovnakým spôsobom spracujú záznamy o myši. Potom sa všetky riadky zapíšu do databázy a pokračuje vykonávanie, ktoré je prebraté z importu z CSV súborov, ktoré zahŕňa napríklad výpočet oblastí záujmov.</para>
+			<para>V spotrebe pamäte pri použití rôznych JSON parserov sa pomerne výrazné rozdiely, úplné porovnanie je v tabuľke <xref linkend="spotreba" /> </para>
+			<table frame='all' id="spotreba"><title>Porovnanie spotreby pamäte pri použití rôznych JSON parserov na testovacom vstupe.</title>
+<tgroup cols='2' align='left' colsep='1' rowsep='1'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<thead>
+<row>
+  <entry>Parser</entry>
+  <entry>Spotreba pamäte</entry>
+</row>
+</thead>
+<tbody>
+<row>
+  <entry>JavaScriptSerializer</entry>
+  <entry>~2GB</entry>
+</row>
+<row>
+  <entry>JSONSerializer</entry>
+  <entry>~3.5GB</entry>
+</row>
+<row>
+  <entry>JSONReader</entry>
+  <entry>~4GB</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
 		</section>
 		<section>
 			<title>Pridané grafické rozhranie importu z UXI Infraštruktúry</title>
@@ -333,7 +387,10 @@
 					<para>Prípad použitia končí.</para>
 				</listitem>
 			</orderedlist>
-			<para>Overenie riešenia Riešenie som zatiaľ odskúšal na dvoch sadách údajov a ďalej sa ho chystám overiť tak, že oslovím pár ľudí, ktorý majú zaznamenané údaje UXI Infraštruktúrou a poprosím ich aby sa pokúsili ich údaje naimportovať a potom ich skúsili analyzovať. Okrem funkčnosti importu ma bude zaujímať ako sa s takouto úlohou budú vedieť vysporiadať úplne nový používatelia, ktorý Ogamu nikdy predtým nepoužili. Tiež aj ich názor na riešenie spolu s ich možnými návrhmi na zlepšenie.</para>
+		</section>
+		<section>
+			<title>Overenie riešenia</title>
+			<para>Riešenie som zatiaľ odskúšal na dvoch sadách údajov a ďalej sa ho chystám overiť tak, že oslovím pár ľudí, ktorý majú zaznamenané údaje UXI Infraštruktúrou a poprosím ich aby sa pokúsili ich údaje naimportovať a potom ich skúsili analyzovať. Okrem funkčnosti importu ma bude zaujímať ako sa s takouto úlohou budú vedieť vysporiadať úplne nový používatelia, ktorý Ogamu nikdy predtým nepoužili. Tiež aj ich názor na riešenie spolu s ich možnými návrhmi na zlepšenie.</para>
 			<para>Zhodnotenie Upravený existujúci nástroj vie poslúžiť na prvotné nahliadnutie do zaznamenaných údajov a je možné získať lepší pohľad na zaznamenané údaje. Natívne funguje, podobne ako TobiiStudio, iba na Windowse avšak nové riešenie je zadarmo a umožňuje veľmi jednoducho pomocou niekoľkých kliknutí naimportovať údaje z UX Infraštruktúri. S importovanými údajmi je potom možné pracovať rovnako ako s údajmi, ktoré boli Ogamou priamo nahraté, napríklad je ich možné vizualizovať pomocou modulu na analýzu. Import videa zatiaľ nie je automatizovaný, to je potrebné skonvertovať do jedného z nainštalovaných kodekov v kontajneri AVI a nakopírovať do priečinka Thumbs v rámci projektu pod názvom vo formáte Meno Účastníka-0</para>
 			<para>Zatiaľ je ešte implementovaný iba import údajov o pohľade a myši ale plánujeme dorobiť aj import udalostí. Taktiež je v pláne analyzovať a prípadne aj implementovať export definície experimentu vo formáte UXI infraštruktúry.</para>
 		</section>
@@ -341,7 +398,7 @@
 	<bibliography>
 		<title>Literatúra</title>
 		<bibliomixed>
-		<abbrev>1</abbrev>
+			<abbrev>1</abbrev>
 			Blascheck, T., Kurzhals, K., Raschke, M., Burch, M., Weiskopf, D., and Ertl, T. State-of-the-Art of Visualization for Eye Tracking Data. In EuroVis - STARs (2014), R. Borgo, R. Maciejewski, and I. Viola, Eds., The Eurographics Association.
 		</bibliomixed>
 	</bibliography>
