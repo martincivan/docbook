@@ -1,10 +1,15 @@
-github.url
-generuj.bat
-BP.xml
-thesis.xsl
-thesis-tp-fo.xsl
-_Z2-xcivanm.txt
-BP.pdf - original
-output.pdf - vysledok docbooku
+Zoznam suborov:
+	github.url
+	generuj.bat
+	BP.xml
+	thesis.xsl
+	thesis-tp-fo.xsl
+	_Z2-xcivanm.txt
+	BP.pdf - original
+	output.pdf - vysledok docbooku
+	BP_files/image1.jpeg
+	BP_files/image2.jpeg
+	BP_files/image3.jpeg
+	BP_files/image4.jpeg
 
 Malo by stacit spustit: generuj.bat BP.xml
